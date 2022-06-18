@@ -1,3 +1,4 @@
+<?php include "../config/database.php" ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +18,7 @@
         <img src="img/bg.svg" />
       </div>
       <div class="login-content">
-        <form action="index.html">
+        <form action="index.php">
           <img src="img/avatar.svg" />
           <h2 class="title">Register</h2>
           <div class="input-div one">
@@ -26,7 +27,10 @@
             </div>
             <div class="div">
               <h5>First Name</h5>
-              <input type="text" class="input" />
+              <input type="text" class="input" required
+              oninvalid="this.setCustomValidity('Please Enter a first name')"
+              oninput="setCustomValidity('')"
+              />
             </div>
           </div>
           <div class="input-div one">
@@ -35,7 +39,10 @@
             </div>
             <div class="div">
               <h5>Last Name</h5>
-              <input type="text" class="input" />
+              <input type="text" class="input" required
+              oninvalid="this.setCustomValidity('Please Enter a last name')"
+              oninput="setCustomValidity('')"
+              />
             </div>
           </div>
           <div class="input-div one">
@@ -44,7 +51,10 @@
             </div>
             <div class="div">
               <h5>Email</h5>
-              <input type="email" class="input" />
+              <input type="email" class="input" required
+              oninvalid="this.setCustomValidity('Please Enter valid email')"
+              oninput="setCustomValidity('')"
+              />
             </div>
           </div>
           <div class="input-div pass">
@@ -53,7 +63,10 @@
             </div>
             <div class="div">
               <h5>Password</h5>
-              <input type="password" class="input" />
+              <input type="password" class="input" required
+                oninvalid="this.setCustomValidity('Please Enter valid password')"
+                oninput="setCustomValidity('')"
+              />
             </div>
           </div>
 
@@ -63,10 +76,13 @@
             </div>
             <div class="div">
               <h5>Confirm Password</h5>
-              <input type="password" class="input" />
+              <input type="password" class="input" required
+                oninvalid="this.setCustomValidity('Please Enter valid password')"
+                oninput="setCustomValidity('')"
+              />
             </div>
           </div>
-          <input type="submit" class="btn" value="Register" />
+          <input type="submit" name = "register" class="btn" value="Register" />
         </form>
       </div>
     </div>

@@ -1,3 +1,4 @@
+<?php include "../config/database.php" ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +18,7 @@
         <img src="img/bg.svg" />
       </div>
       <div class="login-content">
-        <form action="index.html">
+        <form action="index.php">
           <img src="img/avatar.svg" />
           <h2 class="title">Welcome</h2>
           <div class="input-div one">
@@ -25,8 +26,11 @@
               <i class="fas fa-user"></i>
             </div>
             <div class="div">
-              <h5>Username</h5>
-              <input type="text" class="input" />
+              <h5>Email</h5>
+              <input type="email" class="input" required
+              oninvalid="this.setCustomValidity('Please Enter valid email')"
+              oninput="setCustomValidity('')"
+              />
             </div>
           </div>
           <div class="input-div pass">
@@ -35,12 +39,15 @@
             </div>
             <div class="div">
               <h5>Password</h5>
-              <input type="password" class="input" />
+              <input type="password" class="input" required
+                oninvalid="this.setCustomValidity('Please Enter valid password')"
+                oninput="setCustomValidity('')"
+              />
             </div>
           </div>
           <a href="#">Forgot Password?</a>
-          <input type="submit" class="btn" value="Login" />
-          <a href="register.html" style="text-align: center;"> Create an account</a>
+          <input type="submit" name="login" class="btn" value="Login" />
+          <a href="register.php" style="text-align: center;"> Create an account</a>
         </form>
       </div>
     </div>
