@@ -38,10 +38,10 @@
                 $_SESSION['email'] = $email;
                 header('Location: clientsection.html');
               } else {
-                echo "<p class='error'>Invalid password</p>";
+                echo "<script>alert('Invalid password')</script>";
               }
             } else{
-              echo "<p class='error'>Email does not exist</p>";
+              echo "<script>alert('Email does not exist')</script>";
             }
           } 
         }

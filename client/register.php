@@ -41,7 +41,7 @@
               $query = "SELECT * FROM user_info WHERE email = '$email'";
               $result = mysqli_query($conn, $query);
               if (mysqli_num_rows($result) > 0) {
-                echo "<p class='error'>Email already exists</p>";
+                echo "<script>alert('Email already exists')</script>";
               } else {
                 //insert user into database
                 $query = "INSERT INTO user_info (email, password, first_name, last_name) VALUES ('$email', '$password', '$first_name', '$last_name')";
@@ -50,14 +50,14 @@
                   echo "<p class='success'>Registration successful</p>";
                   header('Location: index.php');
                 } else {
-                  echo "<p class='error'>Error creating user</p>";
+                  echo "<script>alert('Error creating user')</script>";
                 }
               }
             } else {
-              echo "<p class='error'>Invalid email</p>";
+              echo "<script>alert('Invalid email')</script>";
             }
           } else {
-            echo "<p class='error'>Passwords do not match</p>";
+            echo "<script>alert('Passwords do not match')</script>";
           }
         }
       }
