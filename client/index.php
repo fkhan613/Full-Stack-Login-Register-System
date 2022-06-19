@@ -12,13 +12,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
+    <?php
+      //declare variables
+      $email = $password = "";
+
+      //check if form is submitted
+      if (isset($_POST['login'])) {
+        //assign variables
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+
+        //check if all fields are filled
+        if (!empty($email) && !empty($password)) {
+          //check if email is valid
+          if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            //check if email exists
+            $query = "SELECT * FROM user_info WHERE email = '$email'";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+              //check if password is correct
+              $row = mysqli_fetch_assoc($result);
+              if ($row['password'] == $password) {
+                //login successful
+                session_start();
+                $_SESSION['email'] = $email;
+                header('Location: clientsection.html');
+              } else {
+                echo "<p class='error'>Invalid password</p>";
+              }
+            } else{
+              echo "<p class='error'>Email does not exist</p>";
+            }
+          } 
+        }
+      } 
+    ?>
     <img class="wave" src="img/wave.png" />
     <div class="container">
       <div class="img">
         <img src="img/bg.svg" />
       </div>
       <div class="login-content">
-        <form action="index.php">
+        <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?> method="POST">
           <img src="img/avatar.svg" />
           <h2 class="title">Welcome</h2>
           <div class="input-div one">
@@ -27,7 +62,7 @@
             </div>
             <div class="div">
               <h5>Email</h5>
-              <input type="email" class="input" required
+              <input type="email" name="email" class="input" required
               oninvalid="this.setCustomValidity('Please Enter valid email')"
               oninput="setCustomValidity('')"
               />
@@ -39,7 +74,7 @@
             </div>
             <div class="div">
               <h5>Password</h5>
-              <input type="password" class="input" required
+              <input type="password" name="password" class="input" required
                 oninvalid="this.setCustomValidity('Please Enter valid password')"
                 oninput="setCustomValidity('')"
               />
