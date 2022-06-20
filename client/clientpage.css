@@ -31,8 +31,20 @@ h2 {
   text-shadow: 0 10px 50px #000;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .content {
-    left: 10%;
+    left: 13%;
+  }
+}
+
+@media screen and (max-width: 900) {
+  .content {
+    left: 9%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .content {
+    left: 5%;
   }
 }
