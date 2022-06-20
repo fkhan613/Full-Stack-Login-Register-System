@@ -133,6 +133,7 @@
             </div>
           </div>
           <input type="submit" name = "register" class="btn" value="Register" />
+          <a href="index.php" style="text-align: center;"> Login</a>
         </form>
       </div>
     </div>
