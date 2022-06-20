@@ -1,9 +1,9 @@
 <?php
 //create constant variables for database connection
-define('DB_HOST', 'localhost');
-define('DB_USER', 'farhankhan');
-define('DB_PASS', 'farhan12345');
-define('DB_NAME', 'users');
+define('DB_HOST', 'sql206.epizy.com');
+define('DB_USER', 'epiz_31993830');
+define('DB_PASS', 'uiQlkDOcegNYj');
+define('DB_NAME', 'epiz_31993830_users');
 
 //create connection
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
