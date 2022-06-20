@@ -30,3 +30,9 @@ h2 {
   font-size: 30px;
   text-shadow: 0 10px 50px #000;
 }
+
+@media screen and (max-width: 768px) {
+  .content {
+    left: 10%;
+  }
+}
