@@ -13,6 +13,7 @@ body {
   overflow: auto;
   display: flex;
   justify-content: center;
+  background: rgb(135, 135, 204);
 }
 
 h1 {
@@ -22,17 +23,21 @@ h1 {
 .user-container {
   position: absolute;
   display: block;
-  border: 6px solid blue;
+  border: 6px solid rgb(0, 0, 0);
   width: 85%;
   margin-top: 10rem;
 }
 
 .user {
   display: flex;
-  justify-content: flex-start;
-  align-content: space-between;
-  gap: 5rem;
-  border: 3px solid rgb(81, 255, 0);
-  width: 100%;
-  margin-top: 2rem;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  border: 3px solid rgb(80, 80, 80);
+  width: 90%;
+  margin: 2rem;
 }
+
+.user p{
+    font-size: 1.5rem;
+}
+
