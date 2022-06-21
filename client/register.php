@@ -46,8 +46,9 @@
                 //insert user into database
                 $query = "INSERT INTO user_info (email, password, first_name, last_name) VALUES ('$email', '$password', '$first_name', '$last_name')";
                 $result = mysqli_query($conn, $query);
+                session_start();
                 if ($result) {
-                  echo "<p class='success'>Registration successful</p>";
+                  echo "<script>alert('Registration Successful')</script>";
                   header('Location: index.php');
                 } else {
                   echo "<script>alert('Error creating user')</script>";
