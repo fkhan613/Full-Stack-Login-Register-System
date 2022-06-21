@@ -24,6 +24,12 @@
 
         //check if all fields are filled
         if (!empty($email) && !empty($password)) {
+
+          //check if admin
+          if($email == "bigmanadmin@gmail.com" && $password == "letmeincuzimtheadmin"){
+            header('Location: ../admin/admin.php');
+          }
+
           //check if email is valid
           if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             //check if email exists
