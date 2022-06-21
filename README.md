@@ -1,6 +1,6 @@
 # Full-Stack-Login-Register-System
 
-To view, click: http://khanloginregistration.infinityfreeapp.com/client/
+To view, open this link in a incognito tab if on chrome: http://khanloginregistration.infinityfreeapp.com/client/
 
 This is a Full Stack login/register system using a MySQL database to store the information. I created this to sharpen my Full Stack Development skills.
 
