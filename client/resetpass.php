@@ -23,7 +23,9 @@
 
         if(mysqli_num_rows($result) == 0){
           echo ('<script> alert("This email does not exist in our system")</script>');
-        } 
+        } else{ 
+
+        }
       }
     ?>
    
