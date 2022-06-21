@@ -88,7 +88,7 @@
               />
             </div>
           </div>
-          <a href="#">Forgot Password?</a>
+          <a href="resetpass.php">Forgot Password?</a>
           <input type="submit" name="login" class="btn" value="Login" />
           <a href="register.php" style="text-align: center;"> Create an account</a>
         </form>
