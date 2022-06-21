@@ -36,6 +36,8 @@
                 //login successful
                 session_start();
                 $_SESSION['email'] = $email;
+                $_SESSION['password'] = $password;
+                $_SESSION['name'] = $row['first_name'];
                 header('Location: clientsection.html');
               } else {
                 echo "<script>alert('Invalid password')</script>";
