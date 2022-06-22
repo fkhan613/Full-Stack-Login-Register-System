@@ -32,7 +32,7 @@
         $input = htmlspecialchars($_POST['input']);
         
         if($input == $_SESSION['verificationNum']){
-            header("Location: resetpass.php");
+            echo('<script> alert("Verification Successful"); window.location.href = "resetpass.php"; </script>');
         }
       }
       
