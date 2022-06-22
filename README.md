@@ -2,7 +2,7 @@
 
 *DO NOT ENTER ANY REAL PASSWORDS*
 
-To view, open the link in a guest or incognito tab if using chrome: http://khanloginregistration.infinityfreeapp.com/client/index.php
+To view, open the link in a guest or incognito tab if using chrome: http://khanloginregistration.infinityfreeapp.com/client/
 
 This is a Full Stack login/register system using a MySQL database to store the information. I created this to sharpen my Full Stack Development skills.
 
