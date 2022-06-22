@@ -48,8 +48,7 @@
                 $result = mysqli_query($conn, $query);
                 session_start();
                 if ($result) {
-                  echo "<script>alert('Registration Successful')</script>";
-                  header('Location: index.php');
+                echo ('<script> alert("Registration Successful"); window.location.href = "index.php"; </script>');
                 } else {
                   echo "<script>alert('Error creating user')</script>";
                 }

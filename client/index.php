@@ -40,9 +40,6 @@
               $row = mysqli_fetch_assoc($result);
               if ($row['password'] == $password) {
                 //login successful
-                session_start();
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;
                 $_SESSION['name'] = $row['first_name'];
                 header('Location: clientsection.html');
               } else {
@@ -88,7 +85,7 @@
               />
             </div>
           </div>
-          <a href="resetpass.php">Forgot Password?</a>
+          <a href="enteremail.php">Forgot Password?</a>
           <input type="submit" name="login" class="btn" value="Login" />
           <a href="register.php" style="text-align: center;"> Create an account</a>
         </form>

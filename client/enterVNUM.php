@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reset Password</title>
+    <title>Verify Email</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
@@ -13,24 +13,29 @@
   </head>
   <body>
     <?php
-      //declare variables
-      $email = $password = "";
-
-      //check if form is submitted
-      if (isset($_POST['reset'])){
-        //update the password
-        $newPassword = $_POST['newPass'];
-        $email = $_SESSION['email'];
-        $query = "UPDATE user_info SET password = '$newPassword' WHERE email = '$email'";
+        if (isset($_POST['send'])) {
+        $email = htmlspecialchars($_REQUEST['email']);
+        $_SESSION['email'] = $email;
+        //check if email is in the database
+        $query = "SELECT email FROM user_info WHERE email = '$email'";
         $result = mysqli_query($conn, $query);
 
-        if($result > 0){
-            echo ('<script> alert("Password updated successfully"); window.location.href = "index.php";</script>');
+        if(mysqli_num_rows($result) == 0){
+          echo ('<script> alert("This email does not exist in our system"); window.location.href = "enteremail.php"; </script>');
         } else{
-            echo ('<script> alert("Password updated unsuccessfully");</script>');
+           $verificationNum = rand(1000,9999);
+           $_SESSION['verificationNum'] = $verificationNum;
         }
-      } 
- 
+      }
+
+        if (isset($_POST['verify'])) {
+        $input = htmlspecialchars($_POST['input']);
+        
+        if($input == $_SESSION['verificationNum']){
+            header("Location: resetpass.php");
+        }
+      }
+      
     ?>
     <img class="wave" src="img/wave.png" />
     <div class="container">
@@ -40,20 +45,21 @@
       <div class="login-content">
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?> method="POST">
           <img src="img/avatar.svg" />
-          <h2 class="title" style="font-size:2rem;">reset password</h2>
+          <h2 class="title" style="font-size:2rem;">Verification</h2>
           <div class="input-div pass">
             <div class="i">
               <i class="fas fa-lock"></i>
             </div>
             <div class="div">
-              <h5>Enter New Password</h5>
-              <input type="password" name="newPass" class="input" required
+              <h5>Enter the Verification Code</h5>
+              <input type="password" name="input" class="input" required
                 oninvalid="this.setCustomValidity('Please Enter valid password')"
                 oninput="setCustomValidity('')"
               />
             </div>
           </div>
-          <input type="submit" name="reset" class="btn" value="Reset" />
+          <input type="submit" name="verify" class="btn" value="verify" />
+          <p><?php echo("Copy and paste this code in the input field: " . $_SESSION['verificationNum'])?></p>
         </form>
       </div>
     </div>
